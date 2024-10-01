@@ -18,6 +18,8 @@
 
 </form>
 
-<button type="button" class="btn btn-primary"  (click)= "update()"   >Salvar</button>
+<button *ngIf ="isEditing" type="button" class="btn btn-primary"  (click)= "update()"   >Salvar</button>
+
+<button *ngIf="!isEditing"  type="button" class="btn btn-primary"  (click)= "save()"   >Criar</button>
 
 </div>

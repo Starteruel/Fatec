@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../product';
 import { ProductService } from '../product.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -11,7 +12,8 @@ import { ProductService } from '../product.service';
 export class ProductsTableComponent implements OnInit{
   products: Product[] = [];
 
-  constructor(private service: ProductService){}
+  constructor(private service: ProductService, private router: Router){}
+
   ngOnInit() {
   this.LoadProducts();
   }
@@ -27,7 +29,9 @@ export class ProductsTableComponent implements OnInit{
          next: () => this.LoadProducts()
       })
    }
-
+     create(){
+       this.router.navigate(['product']);
+     }
 
   }
 
